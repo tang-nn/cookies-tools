@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "Cookie工具",
+    "description": "扩展名称"
+  },
+  "appDescription": {
+    "message": "用于管理Cookie和SessionStorage的工具",
+    "description": "扩展描述"
+  }
+}

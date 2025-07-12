@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Storage Manager</title>
+    <style>
+      body {
+        width: 350px;
+        padding: 15px;
+        font-family: "Segoe UI", Arial, sans-serif;
+      }
+      .header {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+      .tab-selector {
+        margin-bottom: 15px;
+      }
+      select {
+        width: 100%;
+        padding: 8px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+      }
+      .action-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+      button {
+        padding: 8px 12px;
+        background: #4285f4;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #3367d6;
+      }
+      .result-container {
+        max-height: 200px;
+        overflow-y: auto;
+        border: 1px solid #eee;
+        padding: 10px;
+        border-radius: 4px;
+      }
+      .mg-b-10 {
+        margin-bottom: 10px;
+      }
+    </style>
+    <link rel="stylesheet" href="./components/notification/index.css" />
+    <script src="./popup.js" type="module"></script>
+  </head>
+  <body>
+    <div class="header">Storage Manager</div>
+
+    <div class="tab-source-selector mg-b-10">
+      源标签：
+      <select id="tabSourceSelect">
+        <option value="">-- 选择源标标签页 --</option>
+      </select>
+    </div>
+
+    <div class="action-buttons">
+      <button id="copySessionBtn">复制 SessionStorage</button>
+      <button id="copyCookieBtn">复制 Cookies</button>
+      <button id="copyLocalBtn">复制 LocalStorage</button>
+      <button id="copyAllBtn">复制全部</button>
+    </div>
+
+    <div class="result-container mg-b-10"><pre id="resultElement"></pre></div>
+    <div class="tab-target-selector">
+      目标标签：
+      <select id="tabTargetSelect">
+        <option value="">-- 选择目标标签页 --</option>
+      </select>
+    </div>
+
+    <script src="./popup.js" type="module"></script>
+  </body>
+</html>
+
+<div id="notificationContainer"></div>
