@@ -22,6 +22,65 @@
         padding: 8px;
         border-radius: 4px;
         border: 1px solid #ddd;
+        display: none;
+      }
+      
+      /* 自定义选择器样式 */
+      .custom-select {
+        position: relative;
+        width: 100%;
+      }
+      
+      .select-trigger {
+        padding: 8px;
+        border-radius: 4px;
+        border: 1px solid #ddd;
+        cursor: pointer;
+        background-color: white;
+      }
+      
+      .select-trigger:hover {
+        background-color: #f5f5f5;
+      }
+      
+      .select-options {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        max-height: 200px;
+        overflow-y: auto;
+        border: 1px solid #ddd;
+        border-top: none;
+        border-radius: 0 0 4px 4px;
+        background-color: white;
+        z-index: 1000;
+      }
+      
+      .select-option {
+        padding: 8px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      
+      .select-option:hover {
+        background-color: #f5f5f5;
+      }
+      
+      .select-option.selected {
+        background-color: #e8f0fe;
+      }
+      
+      .location-icon {
+        width: 16px;
+        height: 16px;
+        fill: none;
+        stroke: #4285f4;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
       }
       .action-buttons {
         display: grid;
@@ -59,9 +118,11 @@
 
     <div class="tab-source-selector mg-b-10">
       源标签：
-      <select id="tabSourceSelect">
-        <option value="">-- 选择源标标签页 --</option>
-      </select>
+      <div class="custom-select" id="sourceCustomSelect">
+        <div class="select-trigger">-- 选择源标签页 --</div>
+        <div class="select-options" style="display: none;"></div>
+      </div>
+      <input type="hidden" id="tabSourceSelect" value="" />
     </div>
 
     <div class="action-buttons">
@@ -74,9 +135,11 @@
     <div class="result-container mg-b-10"><pre id="resultElement"></pre></div>
     <div class="tab-target-selector">
       目标标签：
-      <select id="tabTargetSelect">
-        <option value="">-- 选择目标标签页 --</option>
-      </select>
+      <div class="custom-select" id="targetCustomSelect">
+        <div class="select-trigger">-- 选择目标标签页 --</div>
+        <div class="select-options" style="display: none;"></div>
+      </div>
+      <input type="hidden" id="tabTargetSelect" value="" />
     </div>
 
     <script src="./popup.js" type="module"></script>

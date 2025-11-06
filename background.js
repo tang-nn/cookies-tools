@@ -174,7 +174,8 @@ function copyAllAction(request, sender, sendResponse) {
         cookies.forEach((cookie) => {
           cookiesData[cookie.name] = cookie.value;
         });
-        resolve({ success: true, data: cookiesData });
+        // 同时保存完整的cookies数组
+        resolve({ success: true, data: cookiesData, allCookies: cookies });
       });
     });
   });
@@ -219,7 +220,7 @@ function copyAllAction(request, sender, sendResponse) {
         // 设置Cookies
         if (cookiesResult?.success) {
           Object.entries(cookiesResult.data).forEach(([name, value]) => {
-            const cookie = cookies.find((c) => c.name === name);
+            const cookie = cookiesResult.allCookies.find((c) => c.name === name);
             if (cookie) {
               chrome.cookies.set({
                 url: tab.url,
